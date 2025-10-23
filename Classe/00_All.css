@@ -209,6 +209,10 @@
   font-size: 2em;
 }
 
+.Questions {
+  font-size: 2em
+}
+
 .Questions_footer {
   display: flex;
   justify-content: center;
