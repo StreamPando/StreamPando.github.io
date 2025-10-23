@@ -1,0 +1,272 @@
+.SomFlexContainer {
+  display: flex;
+  height: 95vh;              /*hauteur totale de la page */
+  width: 98vw;                /* Largeur réduite de 15% */
+  padding: 15px;
+}
+
+.SomFlexContainer .col {
+  display: flex;
+  flex-direction: column;
+  flex: 1;                   /* chaque colonne prend une fraction égale */
+  margin: 0 20px;             /* marge interne à la colonne */
+  justify-content: space-around;
+}
+
+.SomFlexContainer .col span {
+  color: black;
+  display: flex;
+  align-items: center;        /* centre verticalement */
+  justify-content: center;    /* centre horizontalement */
+  text-align: center;    /* sécurité si texte sur plusieurs lignes */
+  font-size: 2em;
+  background-color: #f9e7b9;
+  height: 25vh;             /* hauteur de chaque case */
+  max-width: 300px;          /* largeur maximale de chaque case */
+  width: 100%; 
+  margin: 0 auto;            /* centre la case si < 100% */
+  border-radius: 15px; 
+}
+
+.MainContainer {
+  display: flex;
+  flex-direction: column;    /* Empile la ligne du haut et les colonnes */
+  height: 95vh;
+  width: 98vw;
+  padding: 15px;
+  gap: 20px;                 /* Espacement entre la ligne du haut et les colonnes */
+}
+
+/* La ligne du haut */
+.QuestionsTopLine {
+  display: flex;
+  justify-content: center;   /* Centre le contenu horizontalement */
+  align-items: center;       /* Centre le contenu verticalement */
+  color: black;
+  font-size: 2em;
+  height: 15vh;              /* Hauteur de la ligne du haut */
+  width: 100%;
+  text-align: center;
+}
+.QuestionsTopLine .Matiere {
+  display: flex;                /* active Flexbox */
+  align-items: center;          /* centre verticalement */
+  justify-content: center;      /* centre horizontalement */
+  height: 10vh;
+  min-width: 15vw;
+  max-width: 35vw;
+  margin: 20px auto 20px auto;  /* marge haut, centrage horizontal, marge bas */
+  text-align: center;           /* sécurité si texte sur plusieurs lignes */
+  font-size: 1.25em;
+  background-color: #f9e7b9;
+  color: black;
+  padding: 0 30px;
+  border-radius: 40px; 
+}
+
+/* Vos colonnes existantes (légèrement modifiées) */
+.SomFlexContainerQuestions {
+  display: flex;
+  flex: 1;                   /* Prend le reste de l'espace disponible */
+  width: 100%;
+}
+
+.SomFlexContainerQuestions .col {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;  /* Centre les éléments */
+  gap: 30px;                /* Espacement fixe entre les spans */
+  width: 0 auto;
+  height: 80vh;
+}
+
+.SomFlexContainerQuestions .col:nth-child(1) {margin: 0 20px 0 15%; /* haut, droite, bas, gauche */ }
+.SomFlexContainerQuestions .col:nth-child(2) {margin: 0 15% 0 20px; /* haut, droite, bas, gauche */ }
+
+.SomFlexContainerQuestions .col span {
+  color: black;
+  display: flex;
+  align-items: center;        /* centre verticalement */
+  justify-content: center;    /* centre horizontalement */
+  text-align: center;         /* sécurité si texte sur plusieurs lignes */
+  font-size: 2em;
+  background-color: #f9e7b9;
+  height: 25vh;               /* hauteur de chaque case */
+  width: 35vw; 
+  margin: 0 auto;             /* centre la case si < 100% */
+  cursor: pointer;            /* Indique que c'est cliquable */
+  transition: transform 0.2s; /* Animation au survol */
+  border-radius: 15px; 
+}
+
+/* Style générique des "spans boutons" */
+.bouton {
+    cursor: pointer;
+    user-select: none;
+}
+
+.contenu {
+    display: none;      /* cache la catégorie */
+}
+
+.contenu.actif {
+    display: block;     /* visible */
+}
+
+/* Overlay plein écran */
+.overlay {
+  position: fixed;       /* reste en place même au scroll */
+  top: 0;
+  left: 0;
+  width: 100vw;          /* prend toute la largeur */
+  height: 100vh;         /* prend toute la hauteur */
+  background: rgba(0, 0, 0, 0.5); /* fond semi-transparent */
+  display: none;         /* caché par défaut */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;         /* au-dessus de tout */
+}
+
+/* Quand actif */
+.overlay.actif {
+  display: flex;
+}
+
+.overlay .box {
+  color: black;
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  width: 80vw;
+  height: 70vh;
+  text-align: center;
+  position: relative; /* pour positionner la croix à l'intérieur */
+  
+  display: flex;            /* devient un conteneur flex */
+  flex-direction: column;   /* disposition verticale */
+}
+/* Style bouton rond avec croix */
+.overlay .box .close {
+  position: absolute;
+  top: -15px;   /* légèrement au-dessus du coin */
+  right: -15px; /* légèrement à droite du coin */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #222; /* cercle noir */
+  color: #fff;      /* croix blanche */
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: background 0.3s ease;
+}
+
+.overlay .box .close:hover {
+  background: #e00; /* rouge au survol */
+}
+.Questions, .Reponses {
+  text-align: left;
+  white-space: normal;
+  word-wrap: break-word;
+  margin: 40px 10% 40px 1vw;
+  flex: 1 1 auto;
+  border: #f9e7b9 2px solid;
+  display: block;
+}
+
+/* pour superposer le cache */
+.Reponses {
+  position: relative;
+  margin: 0 10% 40px 1vw;
+}
+
+/* le cache par-dessus */
+.Reponses_Block {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff; /* couleur de cache */
+  opacity: 1;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* quand on enlève le cache */
+.Reponses_Block.actif {
+  display: none;
+}
+
+.Questions .Questions_Titre,
+.Reponses_Titre {
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(108, 142, 214);
+  font-size: 2em;
+}
+
+.Questions_footer {
+  display: flex;
+  justify-content: center;
+  bottom: 20px;
+  border: #222 2px solid;
+  padding: 10px 0;
+}
+
+.Questions_btn_reponse {
+  background-color: #4a5cff;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 60vw;
+  height: 5vh;
+}
+
+.Questions_btn_reponse:hover {
+  background-color: #3240cc;
+}
+
+.Questions_timer {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  width: 12vh;
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #6575ff;
+  background: conic-gradient(#00ffe0 0deg, #00ffe0 360deg, rgba(0,0,0,0.1) 360deg);
+  border-radius: 50%;
+  border: 3px solid #00ffe0;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+/* Pulsations selon le palier */
+.pulse1 {
+  animation: pulse 1s infinite;
+}
+.pulse2 {
+  animation: pulse 0.5s infinite;
+}
+.pulse3 {
+  animation: pulse 0.33s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
