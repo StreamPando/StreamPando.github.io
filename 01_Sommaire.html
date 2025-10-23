@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>LeJeuxDeLaScolarité</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="All.css">
+    <link rel="stylesheet" href="01_Sommaire.css">
+    <!-- IMPORTANT: Inclure le script de protection -->
+    <script src="auth-check.js"></script>
+</head>
+<body>
+    <div class="retour-button">
+        <a href="0_LeJeux.html">Retour</a>
+    </div>
+    <main>
+    <div class="SomFlexContainer">
+
+        <div class="row">
+            <span class="SomFlexBox01 pulse" data-link="Classe/01_CP.html"> CP </span>
+            <span class="SomFlexBox02 pulse" data-link="Classe/02_CE1.html"> CE1 </span>
+            <span class="SomFlexBox03 pulse" data-link="Classe/03_CE2.html"> CE2 </span>
+            <span class="SomFlexBox04 pulse" data-link="Classe/04_CM1.html"> CM1 </span>
+        </div>
+        <div class="row">
+            <span class="SomFlexBox05 pulse" data-link="Classe/05_CM2.html"> CM2 </span>
+            <span class="SomFlexBox06 pulse" data-link="Classe/06_6eme.html"> 6eme </span>
+            <span class="SomFlexBox07 pulse" data-link="Classe/07_5eme.html"> 5eme </span>
+            <span class="SomFlexBox08 pulse" data-link="Classe/08_4eme.html"> 4eme </span>
+        </div>
+        <div class="row">
+            <span class="SomFlexBox09 pulse"  data-link="Classe/09_3eme.html"> 3eme </span>
+            <span class="SomFlexBox10 pulse"  data-link="Classe/10_2nd.html"> 2nd </span>
+            <span class="SomFlexBox11 pulse"  data-link="Classe/11_1ere.html"> 1ere </span>
+            <span class="SomFlexBox12 pulse"  data-link="Classe/12_Terminal.html"> Terminale </span>
+        </div>
+    </div>
+    </main>
+    <script src="All.js"></script>
+    <script>
+        document.querySelectorAll('.pulse[data-link]').forEach(el => {
+            el.style.cursor = "pointer";
+            el.addEventListener('click', function() {
+                window.location.href = el.getAttribute('data-link');
+            });
+        });
+    </script>
+</body>
+</html>

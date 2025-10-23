@@ -1,0 +1,191 @@
+.Jeux_TexteCentrale {
+    z-index: 1000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: auto ; /* ou une largeur fixe si besoin */
+    min-width: 20%;   /* largeur minimum 20% */ 
+    text-shadow:
+    1px 1px 0 #444,
+    -1px -1px 0 #666,
+    2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+p{
+    margin: 0;
+    padding: 0;
+    line-height: 1.3;
+}
+
+div{
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.start-button {
+    position: relative;
+    background: transparent;
+    border: 3px solid #ffffff;
+    border-radius: 50px;
+    padding: 15px 50px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    min-width: 200px;
+    z-index: 10;
+    transform: rotate(-1deg);
+}
+
+/* Contour craie irrégulier */
+.start-button::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 60px;
+    z-index: -1;
+    opacity: 0.8;
+    border-style: dashed;
+}
+
+/* Effet au survol */
+.start-button:hover {
+    transform: scale(1.1) rotate(-1deg);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 0 20px rgba(255, 255, 255, 0.3),
+        0 0 0 3px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Effet craie animé */
+.chalk-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 2px, transparent 2px),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 1px, transparent 1px),
+        radial-gradient(circle at 40% 80%, rgba(255,255,255,0.08) 1.5px, transparent 1.5px);
+    background-size: 15px 15px, 10px 10px, 12px 12px;
+    animation: chalkDust 2s ease-in-out infinite;
+}
+
+.start-button:hover .chalk-effect {
+    opacity: 1;
+}
+
+@keyframes chalkDust {
+    0%, 100% { 
+        background-position: 0 0, 5px 5px, 3px 8px;
+        opacity: 0.3;
+    }
+    50% { 
+        background-position: 5px 5px, 0 0, 8px 3px;
+        opacity: 0.6;
+    }
+}
+
+/* Texte du bouton */
+.button-text {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.start-button:hover .button-text {
+    transform: translateY(-2px);
+}
+
+/* Effet d'activation */
+.start-button:active {
+    transform: scale(1.1);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.5),
+        inset 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #f5f5f5;
+    position: relative;
+    overflow: hidden;
+}
+
+.decorations {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  font-family: "Roboto";
+  font-style: normal;
+}
+
+.decorations span {
+  position: absolute;
+  font-size: 8em;
+  font-weight: bold;
+  opacity: 0.40; /* Plus visible qu’avant */
+  user-select: none;
+  /* font-family: Jua, sans-serif; */
+}
+
+.red { color: red; }
+.green { color: #0e350b; }
+/* Placement espacé (évite les superpositions et le centre) */
+.decorations span:nth-child(1) { top: 01%; left: 40%; font-size: 10em;}
+.decorations span:nth-child(2) { top: 08%; left: 30%; font-size: 8em;}
+.decorations span:nth-child(3) { top: 05%; left: 18%; font-size: 9em;}
+.decorations span:nth-child(4) { top: 30%; left: 10%; font-size: 10em;}
+.decorations span:nth-child(5) { top: 35%; left: 22%; font-size: 6em;}
+
+.decorations span:nth-child(6)  { top: 04%; right: 45%; font-size: 6em;}
+.decorations span:nth-child(7)  { top: 12%; right: 30%; font-size: 8em;}
+.decorations span:nth-child(8)  { top: 20%; right: 20%; font-size: 9em;}
+.decorations span:nth-child(9)  { top: 07%; right: 10%; font-size: 10em;}
+.decorations span:nth-child(10) { top: 30%; right: 10%; font-size: 12em;}
+
+.decorations span:nth-child(11) { bottom: 75%; left: 06%; font-size: 6em;}
+.decorations span:nth-child(12) { bottom: 25%; left: 12%; font-size: 8em;}
+.decorations span:nth-child(13) { bottom: 30%; left: 30%; font-size: 6em;}
+.decorations span:nth-child(14) { bottom: 12%; left: 26%; font-size: 8em;}
+.decorations span:nth-child(15) { bottom: 02%; left: 42%; font-size: 6em;}
+.decorations span:nth-child(22) { bottom: 02%; left: 07%; font-size: 9em;}
+
+.decorations span:nth-child(16) { bottom: 04%; right: 45%; font-size: 6em;}
+.decorations span:nth-child(17) { bottom: 24%; right: 34%; font-size: 8em;}
+.decorations span:nth-child(18) { bottom: 35%; right: 20%; font-size: 9em;}
+.decorations span:nth-child(19) { bottom: 04%; right: 08%; font-size: 8em;}
+.decorations span:nth-child(20) { bottom: 23%; right: 12%; font-size: 7em;}
+.decorations span:nth-child(21) { bottom: 13%; right: 25%; font-size: 6em;}
+
+/* Contenu principal au centre */
+.contenu {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-top: 120px;
+  font-size: 2em;
+}

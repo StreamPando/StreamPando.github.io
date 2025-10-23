@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>LeJeuxDeLaScolarité</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- IMPORTANT: Inclure le script de protection -->
+    <script src="auth-check.js"></script>
+    <link rel="stylesheet" href="All.css">
+    <link rel="stylesheet" href="0_LeJeux.css">
+</head>
+<body class="background-back">
+    <canvas id="noiseCanvas"></canvas>
+    <div class="decorations">
+        <span class="red pulse">?</span>
+        <span class="green pulse">?</span>
+        <span class="red pulse">?</span>
+        <span class="red pulse">?</span>
+        <span class="green pulse">?</span>
+
+        <span class="green pulse">?</span>
+        <span class="red pulse">?</span>
+        <span class="green pulse">?</span>
+        <span class="green pulse">?</span>
+        <span class="red pulse">?</span>
+
+        <span class="green pulse">?</span>
+        <span class="red pulse">?</span>
+        <span class="red pulse">?</span>
+        <span class="green pulse">?</span>
+        <span class="green pulse">?</span>
+
+        <span class="red pulse">?</span>
+        <span class="green pulse">?</span>
+        <span class="red pulse">?</span>
+        <span class="red pulse">?</span>
+        <span class="green pulse">?</span>
+        <span class="green pulse">?</span>
+
+        <span class="green pulse">?</span>
+    </div>
+    <main>
+        <div id="logout-container"></div>
+        <div class="Jeux_TexteCentrale">
+            <span style="color: #a1a1a1; font-size: 3em">Le jeu de la scolarité</span><br><br><br>
+            <span style="font-weight: bold; font-size: 9em ; letter-spacing: 10px"; >QUE<span style="letter-spacing: 30px;">STI</span>ONS</span>
+            <div style="color: #585858; font-size: 2em"> 
+                <span>Stream For Love</span>
+            </div>
+            <br><br><br><br><br>
+            <div class="game-container">
+                <button class="start-button" onclick="startGame()">
+                    <span class="button-text">📚 Démarrer</span>
+                    <div class="chalk-effect"></div>
+                </button>
+            </div>
+        </div>
+        
+    </main>
+    <script src="All.js"></script>
+    <script src="auth-check.js"></script>
+    <script>
+        // Ajouter un bouton de déconnexion
+        document.addEventListener('DOMContentLoaded', function() {
+            addLogoutButton('logout-container');
+        });
+
+        // Fonction pour démarrer le jeu - redirige vers une autre page
+        function startGame() {
+            // Redirection vers la page de jeu
+            window.location.href = '01_Sommaire.html';
+        }
+    </script>
+</body>
+</html>

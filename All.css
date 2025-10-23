@@ -1,0 +1,184 @@
+@font-face {
+  font-family: 'Schoolbell';
+  src: url('asset/fonts/Schoolbell-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Jua';
+  src: url('asset/fonts/Jua-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@keyframes chalkDraw {
+  0% {
+  opacity: 0.8;
+  transform: rotate(1deg);
+  }
+  50% {
+  opacity: 1;
+  transform: rotate(0.5deg);
+  }
+  100% {
+  opacity: 0.9;
+  transform: rotate(1deg);
+  }
+}
+
+
+header {
+  background-color: #222;
+  color: #fff;
+  padding: 0 0;
+  margin: 0 0;
+  width: 100%;
+  z-index: 1000 ;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Schoolbell";
+  font-style: normal;
+  font-size: 1.2em;
+  
+}
+
+main {
+  color: #fff;
+  border: none; /* coins pleins */
+  border-radius: 0; /* coins pleins */
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  padding:0;
+  margin: 0;
+  max-width: none;
+  min-height: 100vh;
+  width: 100vw;
+  font-family: 'Schoolbell', cursive;
+  box-sizing: border-box;
+}
+
+.background-back {
+  background: radial-gradient(circle, 
+    rgb(65, 84, 91), /* centre */
+    
+    
+    rgb(76, 97, 104) 95%,
+    rgb(79, 98, 105) 100%,
+    #536b53  /* bordure extérieure */
+  );
+  z-index: -10;
+}
+
+#noiseCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#logout-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: transparent;
+  pointer-events: auto;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9em;
+}
+
+#logout-container button {
+  margin: 0;
+  padding: 2px 6px;
+  font-size: 0.9em;
+  box-sizing: border-box;
+}
+
+
+/* =================================== */
+.retour-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 980;
+}
+
+.retour-button a,
+.retour-button span {
+  display: block;
+  padding: 12px 24px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.retour-button:hover a,
+.retour-button:hover span {
+  color: #f0f0f0;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  transform: rotate(-0.5deg) scale(1.1);
+}
+.retour-button a::before,
+.retour-button span::before{
+  display: none;
+}
+
+.retour-button a::after,
+.retour-button span::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -12px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 45% 55% 70% 30% / 60% 40% 60% 40%;
+  background: 
+  conic-gradient(from 0deg at 50% 50%,
+  rgba(255, 255, 255, 0.9) 0deg,
+  rgba(255, 255, 255, 0.5) 15deg,
+  rgba(255, 255, 255, 0.95) 25deg,
+  rgba(255, 255, 255, 0.6) 40deg,
+  rgba(255, 255, 255, 0.9) 55deg,
+  rgba(255, 255, 255, 0.4) 70deg,
+  rgba(255, 255, 255, 0.95) 85deg,
+  rgba(255, 255, 255, 0.7) 100deg,
+  rgba(255, 255, 255, 0.9) 115deg,
+  rgba(255, 255, 255, 0.5) 130deg,
+  rgba(255, 255, 255, 0.85) 145deg,
+  rgba(255, 255, 255, 0.6) 160deg,
+  rgba(255, 255, 255, 0.9) 175deg,
+  rgba(255, 255, 255, 0.4) 190deg,
+  rgba(255, 255, 255, 0.95) 205deg,
+  rgba(255, 255, 255, 0.7) 220deg,
+  rgba(255, 255, 255, 0.85) 235deg,
+  rgba(255, 255, 255, 0.5) 250deg,
+  rgba(255, 255, 255, 0.9) 265deg,
+  rgba(255, 255, 255, 0.6) 280deg,
+  rgba(255, 255, 255, 0.95) 295deg,
+  rgba(255, 255, 255, 0.7) 310deg,
+  rgba(255, 255, 255, 0.85) 325deg,
+  rgba(255, 255, 255, 0.5) 340deg,
+  rgba(255, 255, 255, 0.9) 360deg);
+  mask: 
+  radial-gradient(ellipse at center, transparent 60%, black 65%),
+  radial-gradient(ellipse at center, transparent 75%, black 80%);
+  mask-composite: subtract;
+  box-shadow: 
+  0 0 0 1px rgba(255, 255, 255, 0.3),
+  0 0 3px rgba(255, 255, 255, 0.2);
+  filter: 
+  drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.4))
+  drop-shadow(-1px -1px 1px rgba(255, 255, 255, 0.3));
+  transform: rotate(1deg);
+}

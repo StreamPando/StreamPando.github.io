@@ -1,0 +1,51 @@
+.SomFlexContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 89%;           /* Largeur réduite de 15% */
+    margin-right: 10%;    /* Décale le container vers la gauche */
+    height: 88vh; /* hauteur totale de la page */
+    padding: 20px;
+    min-height: 0;
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.row {
+    display: flex;
+    justify-content: center;  /* centre les items dans la ligne */
+    margin-bottom: 20px;
+}
+
+.row:last-child {
+    margin-bottom: 0;
+}
+
+[class^="SomFlexBox"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20vw;         /* 20% de la largeur de la fenêtre */
+    height: 20vh;        /* 20% de la hauteur de la fenêtre */
+    max-width: 20vw;
+    max-height: 20vh;
+    margin: 0 10px;
+    text-align: center;
+    font-size: 2.2em;
+}
+
+.SomFlexBox01 { transform: translateY(20px) rotate(-10deg); }
+.SomFlexBox02 { transform: translateY(-20px) rotate(9deg); }
+.SomFlexBox03 { transform: translateY(0px) rotate(-5deg); }
+.SomFlexBox04 { transform: translateY(-10px) rotate(-1deg); }
+
+.SomFlexBox05 { transform: translateY(20px) rotate(1deg); }
+.SomFlexBox06 { transform: translateY(10px) rotate(5deg); }
+.SomFlexBox07 { transform: translateY(0px) rotate(-9deg); }
+.SomFlexBox08 { transform: translateY(-10px) rotate(9deg); }
+
+.SomFlexBox09 { transform: translateY(20px) rotate(-11deg); }
+.SomFlexBox10 { transform: translateY(10px) rotate(-7deg); }
+.SomFlexBox11 { transform: translateY(0px) rotate(7deg); }
+.SomFlexBox12 { transform: translateY(-10px) rotate(9deg); }
